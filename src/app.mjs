@@ -18,7 +18,7 @@ router.get(
     console.log(validator.parse(event.context.params))
 
     try {
-      const params = await getValidatedRouterParams(event, validator.parse)
+      const params = await getValidatedRouterParams(event, (data) => validator.parse(data))
       console.log('validated', params)
       return params;
     } catch (error) {
